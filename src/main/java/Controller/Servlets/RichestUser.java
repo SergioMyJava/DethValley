@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-public class ListServlet extends HttpServlet {
+public class RichestUser extends HttpServlet{
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -21,21 +23,26 @@ public class ListServlet extends HttpServlet {
         ConnectionMySql con = new ConnectionMySql();
 
         try {
-            List<User> users = con.getListUser();
-            if(users!=null) {
-                request.setAttribute("users", users);
-                request.getRequestDispatcher("/views/ListUser.jsp").forward(request, response);
+            User user = (User) con.richedUser();
+            if(user!=null) {
+                String nameUser = user.getName();
+                String sureNameUser = user.getSureName();
+                request.setAttribute("name", nameUser);
+                request.setAttribute("sureName", sureNameUser);
+                request.getRequestDispatcher("/views/RichestUser.jsp").forward(request, response);
             }
             else{
-                String nameUser = "No users in the database!";
+                String nameUser = "No one is rich!";
 
                 request.setAttribute("name", nameUser);
 
-                request.getRequestDispatcher("/views/UserByID.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/RichestUser.jsp").forward(request, response);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+            } catch (SQLException e1) {
+            e1.printStackTrace();
         }
 
-        }
     }
+    }
+

@@ -8,7 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+
+    <title>Sum on all accounts</title>
+    <head>Sum oF all accounts</head>
+    <%int sum = (int) request.getAttribute("sumAccount");%>
+    <%=sum%>
+
+
 </head>
 <body>
 

@@ -8,7 +8,8 @@ public class Main {
 
     public static void main( String[] args ) throws SQLException {
         ConnectionMySql test = new ConnectionMySql();
-        test.accountSum();
+        test.findById(6);
+
 
 
 

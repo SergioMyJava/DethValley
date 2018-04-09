@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-public class ListServlet extends HttpServlet {
+public class Sum extends HttpServlet {
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -21,21 +22,21 @@ public class ListServlet extends HttpServlet {
         ConnectionMySql con = new ConnectionMySql();
 
         try {
-            List<User> users = con.getListUser();
-            if(users!=null) {
-                request.setAttribute("users", users);
-                request.getRequestDispatcher("/views/ListUser.jsp").forward(request, response);
-            }
-            else{
-                String nameUser = "No users in the database!";
+             int sum = con.accountSum();
+System.out.print("Owere SUM"+sum);
+                 request.setAttribute("sumAccount", sum);
+                 request.getRequestDispatcher("/views/Sum.jsp").forward(request, response);
 
-                request.setAttribute("name", nameUser);
-
-                request.getRequestDispatcher("/views/UserByID.jsp").forward(request, response);
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        }
+    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    }
+
+
+
     }

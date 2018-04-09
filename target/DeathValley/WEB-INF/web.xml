@@ -3,8 +3,9 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
 
+  <display-name>Archetype Created Web Application</display-name>
+    <!-- GetByID -->
 
   <servlet>
     <servlet-name>GetByID</servlet-name>
@@ -13,8 +14,38 @@
 
   <servlet-mapping>
     <servlet-name>GetByID</servlet-name>
-    <url-pattern>/UserByID</url-pattern>
+    <url-pattern>/GetByID</url-pattern>
   </servlet-mapping>
+    <!-- Sum -->
+    <servlet>
+        <servlet-name>Sum</servlet-name>
+        <servlet-class>Controller.Servlets.Sum</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>Sum</servlet-name>
+        <url-pattern>/Sum</url-pattern>
+    </servlet-mapping>
+
+    <!-- RichestUser -->
+    <servlet>
+        <servlet-name>RichestUser</servlet-name>
+        <servlet-class>Controller.Servlets.RichestUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RichestUser</servlet-name>
+        <url-pattern>/RichestUser</url-pattern>
+    </servlet-mapping>
+    <!-- ListServlet -->
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>Controller.Servlets.ListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/ListServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

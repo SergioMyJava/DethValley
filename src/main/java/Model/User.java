@@ -6,6 +6,11 @@ public class User {
     private String name;
     private String sureName;
 
+    public User(String name,String sureName){
+        this.name = name;
+        this.sureName = sureName;
+    }
+
     public User(int userId,String name,String sureName){
         this.userId = userId;
         this.name = name;

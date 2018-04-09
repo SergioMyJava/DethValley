@@ -8,7 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+<head>Most rich man </head>
+    <%String name = (String)request.getAttribute("name"); %>
+    <%= name%>
+    <%String sureName = (String)request.getAttribute("sureName"); %>
+    <%= sureName%>
 </head>
 <body>
 

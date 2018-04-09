@@ -10,11 +10,11 @@
     <br/> <button type="submit">Get all users</button> <br/>
 </form>
 
-<form action="/GetByID" method="GET" >
+<form action="/RichestUser" method="GET" >
     <br/> <button type="submit">Get richest user</button> <br/>
 </form>
 
-<form action="/GetByID" method="GET" >
+<form action="/Sum" method="GET" >
     <br/> <button type="submit">Get accounts sum</button> <br/>
 </form>
 
