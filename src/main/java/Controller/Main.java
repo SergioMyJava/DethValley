@@ -6,13 +6,6 @@ public class Main {
 
 
 
-    public static void main( String[] args ) throws SQLException {
-        ConnectionMySql test = new ConnectionMySql();
-        test.findById(6);
-
-
-
-
-
-    }
+    public static void main( String[] args ) {
+         }
 }

@@ -16,6 +16,7 @@ public class ConnectionMySql {
         Connection con = DriverManager.getConnection(url, user, password);
 
         Statement stat = con.createStatement();
+
         String guery = "select sum(account) as `total_money` from `account` ";
         ResultSet rs = stat.executeQuery(guery);
         try {
@@ -24,8 +25,6 @@ public class ConnectionMySql {
                 System.out.print("Сумма " + money);
                 return money;
             }
-
-
         } finally {
             try {
                 rs.close();
@@ -37,10 +36,7 @@ public class ConnectionMySql {
         return 0;
     }
 
-
-
     public Object findById(int ID) throws SQLException{
-
 
         Connection con = DriverManager.getConnection(url, user, password);
 
@@ -56,8 +52,6 @@ public class ConnectionMySql {
                 User find = new User(ID,name,sureName);
                 return find;
             }
-
-
         } finally {
             try {
                 rs.close();
@@ -66,9 +60,6 @@ public class ConnectionMySql {
             } catch (Throwable notFound) { }
         }
     return null;}
-
-
-
 
     public Object richedUser() throws SQLException {
         int maxMoney = 0;
@@ -80,26 +71,19 @@ public class ConnectionMySql {
 
         String guery = " SELECT MAX(account) as account from databasedv.account";
         ResultSet rs = stat.executeQuery(guery);
-
         try {
             while (rs.next()) {
                 maxMoney = rs.getInt("account");
                 System.out.print("Nashel 1 " + maxMoney);
-
             }
             String max = Integer.toString(maxMoney);
             String gueryTwo = " select userId from account where account =" + " '" + max + "' ";
             rs = stat.executeQuery(gueryTwo);
-
-
             try {
                 while (rs.next()) {
                     userIdReach = rs.getInt("userId");
                     System.out.print("Nashel 2" + userIdReach);
                 }
-
-
-
                 String reach = Integer.toString(userIdReach);
                 String gueryThree = " select name,sureName from user where userId =" + " '" + reach + "' ";
                  rs = stat.executeQuery(gueryThree);
@@ -112,9 +96,6 @@ public class ConnectionMySql {
 
                         return find;
                     }
-
-
-
                 } finally {
 
                 }
@@ -147,6 +128,7 @@ public class ConnectionMySql {
         List <User> users = new ArrayList<User>();
 
             Connection con = DriverManager.getConnection(url, user, password);
+
             Statement stat = con.createStatement();
 
             String guery = "select name,sureName from user";
@@ -168,22 +150,4 @@ public class ConnectionMySql {
             }
             return users;}
 
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-

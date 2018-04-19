@@ -12,14 +12,18 @@
 <html>
 <br>
     <title>Our database of users</title>
-
-
+</br>
+<head>
 <br>
 <%    ArrayList<User> list = (ArrayList<User>) request.getAttribute("users");
     for(User user : list) {
-
-        out.println(user.getName());
-        out.println(user.getSureName());}%>
+%>
+    <br>
+        <tr>
+        <td><%out.println(user.getName());%></td>
+        <td><%out.println(user.getSureName());}%></td>
+        </tr>
+    </br>
 </br>
 
 
